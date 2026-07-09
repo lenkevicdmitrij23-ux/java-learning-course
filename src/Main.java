@@ -1,15 +1,49 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите первое число: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Введите операцию: ");
+
+        char operation = scanner.next().charAt(0);
+
+        System.out.print("Введите второе число: ");
+        double b = scanner.nextDouble();
+
+
+
+
+        double result = 0;
+        boolean isValid = true;
+
+        if (operation == '+'){
+            result = a + b;
+        }else if(operation == '-'){
+            result = a - b;
+        }else if(operation == '*'){
+            result = a * b;
+        }else if(operation == '/'){
+            if(b == 0){
+                System.out.println("Error");
+                isValid = false;
+            }else {
+                result = a / b;
+            }
+        }else {
+            System.out.println("Ошибка: неизвестная операция!");
+            isValid = false;
         }
+
+        if (isValid){
+            System.out.println("Результат: " + result);
+        }
+
+
+        scanner.close();
+
     }
 }
